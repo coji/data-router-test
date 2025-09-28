@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLoaderData } from 'react-router'
 import reactLogo from '~/assets/react.svg'
+import { Button } from '~/components/ui/button'
 import viteLogo from '/vite.svg'
 
 export const loader = () => {
@@ -33,13 +34,9 @@ export default function App() {
       <div className="mb-4 text-lg">{message}</div>
       <Link to="/form">Form</Link>
       <div className="p-8">
-        <button
-          type="button"
-          onClick={() => setCount((count) => count + 1)}
-          className="rounded-lg bg-gray-800 px-6 py-3 text-lg font-semibold text-white transition-colors duration-200 hover:bg-gray-700"
-        >
+        <Button type="button" onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </Button>
         <p className="mt-4">
           Edit{' '}
           <code className="rounded bg-gray-100 px-2 py-1">src/App.tsx</code> and
