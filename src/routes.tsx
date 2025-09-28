@@ -1,16 +1,22 @@
-import { createHashRouter } from 'react-router'
+import { createMemoryRouter } from 'react-router'
 import App, { loader } from './routes/_index/route.tsx'
+import Layout from './routes/_layout.tsx'
 import Form, { action } from './routes/form/route.tsx'
 
-export const router = createHashRouter([
+export const router = createMemoryRouter([
   {
-    path: '/',
-    loader,
-    Component: App,
-  },
-  {
-    path: '/form',
-    Component: Form,
-    action,
+    Component: Layout,
+    children: [
+      {
+        path: '/',
+        loader,
+        Component: App,
+      },
+      {
+        path: '/form',
+        Component: Form,
+        action,
+      },
+    ],
   },
 ])

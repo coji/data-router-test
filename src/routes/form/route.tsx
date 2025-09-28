@@ -38,8 +38,6 @@ export default function FormPage() {
     schema,
   })
 
-  console.log({ actionData })
-
   return (
     <Form method="POST" {...form.props} className="grid grid-cols-1 gap-4 p-8">
       <div>
