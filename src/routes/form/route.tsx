@@ -1,12 +1,12 @@
 import { parseSubmission, report, useForm } from '@conform-to/react/future'
-import { unstable_coerceFormValue as coerceFromValue } from '@conform-to/zod/v4'
+import { coerceFormValue } from '@conform-to/zod/v4/future'
 import { Form, useActionData, type ActionFunctionArgs } from 'react-router'
 import { toast } from 'sonner'
 import { z } from 'zod/v4'
 import { Button } from '~/components/ui/button'
 import { Label } from '~/components/ui/label'
 
-const schema = coerceFromValue(
+const schema = coerceFormValue(
   z.object({
     name: z.string({ error: 'Name is required' }),
   }),
@@ -14,20 +14,18 @@ const schema = coerceFromValue(
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const submission = parseSubmission(await request.formData())
-  const parseResult = schema.safeParse(submission.payload)
+  const result = schema.safeParse(submission.payload)
 
-  if (!parseResult.success) {
+  if (!result.success) {
     toast.error('Please fix the errors in the form.', {
-      description: Object.values(parseResult.error),
+      description: z.prettifyError(result.error),
     })
     return {
-      lastResult: report(submission, {
-        error: parseResult.error,
-      }),
+      lastResult: report(submission, { error: result.error }),
     }
   }
 
-  toast.success(`Hello, ${parseResult.data.name}!`)
+  toast.success(`Hello, ${result.data.name}!`)
   return {
     lastResult: report(submission, { reset: true }),
   }
