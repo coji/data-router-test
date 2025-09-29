@@ -9,8 +9,7 @@ React + TypeScript + Vite アプリケーションで、React Router v7 のデ�
 - **ルーティング**: React Router 7.9 (Memory Router)
 - **フォーム管理**: Conform 1.11 + Zod 4.1
 - **UI コンポーネント**:
-  - Radix UI
-  - shadcn/ui カスタムコンポーネント
+  - shadcn/ui
   - Tailwind CSS 4.1
 - **通知**: Sonner
 - **コード品質**:
@@ -69,7 +68,7 @@ src/
 ### UI/UX
 
 - Tailwind CSS 4 による最新のスタイリング
-- Radix UI ベースのアクセシブルなコンポーネント
+- shadcn/ui ベースのアクセシブルなコンポーネント
 - アニメーション対応
 - レスポンシブデザイン
 
