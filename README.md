@@ -1,6 +1,6 @@
-# React Router Data Router Test
+# React Router v7 Data Mode Test
 
-React + TypeScript + Vite アプリケーションで、React Router v7 のデータルーター機能と Conform フォームバリデーションを実装したサンプルプロジェクトです。
+React + TypeScript + Vite アプリケーションで、React Router v7 のデータモード機能と Conform フォームバリデーションを実装したサンプルプロジェクトです。
 
 ## 技術スタック
 
@@ -150,7 +150,7 @@ pnpm preview
 
 ## 特徴
 
-1. **React Router v7 データルーター**
+1. **React Router v7 データモード**
    - Loader によるデータ事前取得
    - Action によるフォーム処理
    - 型安全なルーティング
